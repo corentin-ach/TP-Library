@@ -17,6 +17,12 @@ namespace ASP.Server.Controllers
 
         // Ajouter ici tous les champ que l'utilisateur devra remplir pour ajouter un livre
 
+        public String Contenu { get; set; }
+
+        public double Prix { get; set; }
+
+        public String Auteur { get; set; }
+
         // Liste des genres séléctionné par l'utilisateur
         public List<int> Genres { get; set; }
 
@@ -36,7 +42,7 @@ namespace ASP.Server.Controllers
         public ActionResult<IEnumerable<Book>> List()
         {
             // récupérer les livres dans la base de donées pour qu'elle puisse être affiché
-            List<Book> ListBooks = null;
+            List<Book> ListBooks = libraryDbContext.Books.ToList();
             return View(ListBooks);
         }
 
