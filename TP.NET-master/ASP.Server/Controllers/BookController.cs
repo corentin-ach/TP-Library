@@ -42,7 +42,7 @@ namespace ASP.Server.Controllers
         public ActionResult<IEnumerable<Book>> List()
         {
             // récupérer les livres dans la base de donées pour qu'elle puisse être affiché
-            List<Book> ListBooks = null;
+            List<Book> ListBooks = libraryDbContext.Books.ToList();
             return View(ListBooks);
         }
 
@@ -60,6 +60,12 @@ namespace ASP.Server.Controllers
 
             // Il faut interoger la base pour récupérer tous les genres, pour que l'utilisateur puisse les slécétionné
             return View(new CreateBookModel() { AllGenres = libraryDbContext.Genre.ToList() } );
+        }
+
+        public ActionResult<Book> Delete(Book book)
+        {
+            var deletedBooks = libraryDbContext.Books.Remove(book);
+            return View(deletedBooks); 
         }
     }
 }

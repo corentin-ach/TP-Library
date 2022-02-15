@@ -34,6 +34,11 @@ namespace ASP.Server.Api
         //   - Entrée: Id du livre
         //   - Sortie: Object livre entier
 
+        public ActionResult<Book> GetBook(int id)
+        {
+            var book = libraryDbContext.Books.Find(id);
+            return book;
+        } 
         // - GetGenres
         //   - Entrée: Rien
         //   - Sortie: Liste des genres

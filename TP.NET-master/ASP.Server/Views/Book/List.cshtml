@@ -4,11 +4,56 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="listeBooks">
-    <h1>Liste des livres:</h1>
+<h1>Liste des livres:</h1>
+
+<p>
+    @Html.ActionLink("Create New","Create")
+</p>
+
+<table class="listeBooks">
+    <tr>
+        <th>
+                @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+                @Html.DisplayNameFor(model => model.titre)
+        </th>
+        <th>
+                @Html.DisplayNameFor(model => model.auteur)
+        </th>
+        <th>
+                @Html.DisplayNameFor(model => model.contenu)
+        </th>
+        <th>
+                @Html.DisplayNameFor(model => model.prix)
+        </th>
+        <th>
+                @Html.DisplayNameFor(model => model.Genres)
+        </th>
+    </tr>
     <!-- la liste des genres est dans la variable Model qui est typé en ligne 3, elle correspond à la variable xxx dans View(xxx) du controller -->
     @foreach (var book in Model)
     {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelBook => book.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelBook => book.titre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelBook => book.auteur)
+            </td>    
+            <td>
+                @Html.DisplayFor(modelBook => book.contenu)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelBook => book.prix)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelBook => book.Genres)
+            </td>
+        </tr>
     }
-</div>
+</table>
 
