@@ -38,7 +38,7 @@ namespace ASP.Server.Api
         {
             var book = libraryDbContext.Books.Find(id);
             return book;
-        }
+        } 
         // - GetGenres
         //   - Entrée: Rien
         //   - Sortie: Liste des genres

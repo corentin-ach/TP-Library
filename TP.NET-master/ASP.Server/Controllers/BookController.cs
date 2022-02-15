@@ -65,7 +65,7 @@ namespace ASP.Server.Controllers
         public ActionResult<Book> Delete(Book book)
         {
             var deletedBooks = libraryDbContext.Books.Remove(book);
-            return View(deletedBooks);
+            return View(deletedBooks); 
         }
     }
 }
