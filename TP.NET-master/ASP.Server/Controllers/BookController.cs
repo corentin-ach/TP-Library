@@ -17,6 +17,12 @@ namespace ASP.Server.Controllers
 
         // Ajouter ici tous les champ que l'utilisateur devra remplir pour ajouter un livre
 
+        public String Contenu { get; set; }
+
+        public double Prix { get; set; }
+
+        public String Auteur { get; set; }
+
         // Liste des genres séléctionné par l'utilisateur
         public List<int> Genres { get; set; }
 
