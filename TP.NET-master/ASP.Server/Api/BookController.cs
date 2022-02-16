@@ -36,21 +36,24 @@ namespace ASP.Server.Api
 
         public ActionResult<List<BookModel>> GetBooks(List<int> genreid, int offset = 0, int limit = 10)
         {
-
+           
             var bookslist = libraryDbContext.Books
              .Include(BookModel => BookModel.Genres)
              .Skip(offset)
              .Take(limit)
              .Where(b => b.Genres.Any(a => genreid.Contains(a.Id)))
              .ToList();
-
-
             return BookModel.ToBookmodel(bookslist);
 
         }
         public ActionResult<Book> GetBook(int id)
         {
-            var book = libraryDbContext.Books.Find(id);
+            var book = libraryDbContext.Books
+                .Include(x => x.Genres)
+                .SingleOrDefault(book => book.Id == id);
+            if (book == null)
+             return NotFound(" Le livre souhaité est inexistant ");
+             
             return book;
         } 
         // - GetGenres
