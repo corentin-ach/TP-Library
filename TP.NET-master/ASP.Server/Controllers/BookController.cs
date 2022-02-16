@@ -62,10 +62,13 @@ namespace ASP.Server.Controllers
             return View(new CreateBookModel() { AllGenres = libraryDbContext.Genre.ToList() } );
         }
 
-        public ActionResult<Book> Delete(Book book)
+        public ActionResult<Book> Delete(int id)
         {
-            var deletedBooks = libraryDbContext.Books.Remove(book);
-            return View(deletedBooks); 
+            var book = libraryDbContext.Books.Find(id);
+            var newList = libraryDbContext.Books.Remove(book);
+            libraryDbContext.SaveChanges();
+            // List<Book> ListBooks = libraryDbContext.Books.ToList();
+            return View(newList);
         }
     }
 }
