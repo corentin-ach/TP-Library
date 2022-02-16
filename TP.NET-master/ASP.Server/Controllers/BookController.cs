@@ -16,16 +16,20 @@ namespace ASP.Server.Controllers
         public String Name { get; set; }
 
         // Ajouter ici tous les champ que l'utilisateur devra remplir pour ajouter un livre
-
+        [Required]
+        [Display(Name = "Contenu")]
         public String Contenu { get; set; }
-
+        [Required]
+        [Display(Name = "Prix")]
         public double Prix { get; set; }
-
+        [Required]
+        [Display(Name = "Auteur")]
         public String Auteur { get; set; }
-
+        [Required]
+        [Display(Name = "Genres")]
         // Liste des genres séléctionné par l'utilisateur
         public List<int> Genres { get; set; }
-
+        
         // Liste des genres a afficher à l'utilisateur
         public IEnumerable<Genre> AllGenres { get; init;  }
     }
@@ -42,7 +46,7 @@ namespace ASP.Server.Controllers
         public ActionResult<IEnumerable<Book>> List()
         {
             // récupérer les livres dans la base de donées pour qu'elle puisse être affiché
-            List<Book> ListBooks = libraryDbContext.Books.ToList();
+            List<Book> ListBooks = libraryDbContext.Books.Include(x => x.Genres).ToList();
             return View(ListBooks);
         }
 
@@ -52,9 +56,11 @@ namespace ASP.Server.Controllers
             if (ModelState.IsValid)
             {
                 // Il faut intéroger la base pour récupérer l'ensemble des objets genre qui correspond aux id dans CreateBookModel.Genres
-                List<Genre> genres = libraryDbContext.Genre.ToList();
+                var genres = libraryDbContext.Genre.Where(genres => book.Genres.Contains(genres.Id)).ToList();
                 // Completer la création du livre avec toute les information nécéssaire que vous aurez ajoutez, et metter la liste des gener récupéré de la base aussi
-                libraryDbContext.Add(new Book() {  });
+                //requete recup list genre et obetenir le bon genre
+
+                libraryDbContext.Add(new Book() { titre = book.Name, contenu = book.Contenu, prix = book.Prix, Genres=genres});
                 libraryDbContext.SaveChanges();
             }
 

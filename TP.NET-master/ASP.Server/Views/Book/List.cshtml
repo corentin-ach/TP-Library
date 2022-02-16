@@ -10,6 +10,16 @@
     @Html.ActionLink("Create New","Create")
 </p>
 
+@foreach (var book in Model)
+{
+    <div>@book.titre</div>
+    foreach (var genre in book.Genres)
+    {
+        <span>@genre.Type</span>
+    } 
+}
+
+
 <table class="listeBooks">
     <tr>
         <th>
@@ -28,6 +38,7 @@
                 @Html.DisplayNameFor(model => model.prix)
         </th>
         <th>
+            
                 @Html.DisplayNameFor(model => model.Genres)
         </th>
         <th>
