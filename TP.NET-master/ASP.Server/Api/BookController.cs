@@ -34,6 +34,20 @@ namespace ASP.Server.Api
         //   - Entrée: Id du livre
         //   - Sortie: Object livre entier
 
+        public ActionResult<List<BookModel>> GetBooks(List<int> genreid, int offset = 0, int limit = 10)
+        {
+
+            var bookslist = libraryDbContext.Books
+             .Include(BookModel => BookModel.Genres)
+             .Skip(offset)
+             .Take(limit)
+             .Where(b => b.Genres.Any(a => genreid.Contains(a.Id)))
+             .ToList();
+
+
+            return BookModel.ToBookmodel(bookslist);
+
+        }
         public ActionResult<Book> GetBook(int id)
         {
             var book = libraryDbContext.Books.Find(id);
@@ -47,6 +61,7 @@ namespace ASP.Server.Api
             var genreslist = libraryDbContext.Genre.ToList();
             return genreslist;
         }
+
 
 
         // Aide:
