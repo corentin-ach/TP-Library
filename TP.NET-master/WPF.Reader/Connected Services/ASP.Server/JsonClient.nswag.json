@@ -5,7 +5,7 @@
     "title": "My Title",
     "version": "1.0.0"
   },
-  "host": "localhost:44382",
+  "host": "localhost:5001",
   "schemes": [
     "https"
   ],

@@ -29,10 +29,10 @@ namespace ASP.Server.Database
             // Une fois les moèles complété Vous pouvez faire directement
             // new Book() { Author = "xxx", Name = "yyy", Price = n.nnf, Content = "ccc", Genres = new() { Romance, Thriller } }
             bookDbContext.Books.AddRange(
-                new Book(){ titre = "yyy", contenu = "teshs", prix = 200, Genres = new List<Genre>() { SF } }, 
-                new Book(){ titre = "xxx", contenu = "teshs", prix = 400, Genres = new List<Genre>() { SF } },
-                new Book(){ titre = "www", contenu = "teshs", prix = 15, Genres = new List<Genre>() { SF } },
-                new Book(){ titre = "zzz", contenu = "teshs" }
+                new Book(){ titre = "Book 1", contenu = "teshs", prix = 200, auteur = "Tessir" , Genres = new List<Genre>() { SF, Romance} }, 
+                new Book(){ titre = " Book 2", contenu = "teshs", prix = 400, auteur =  "Corentin" , Genres = new List<Genre>() { SF, Thriller } },
+                new Book(){ titre = "Book 3", contenu = "teshs", prix = 15, auteur = "Nisserine", Genres = new List<Genre>() { Romance } },
+                new Book(){ titre = " Book 4", contenu = "teshs", prix = 15, auteur = "Florent", Genres = new List<Genre>() { SF, Thriller } }
             );
             // Vous pouvez initialiser la BDD ici
 
