@@ -51,7 +51,7 @@ namespace WPF.Reader.Service
             var books = await new ASP.Server.Client(httpClient).ApiBookGetBooksAsync( new List<int>(),0,10);
             Books.Clear();
            
-            foreach (var book in books.Select(x => new Book() { Id = x.Id, titre = x.Titre,  prix = x.Prices, Genres = x.Genres.Select(x => new Genre { Type = x.Type }).ToList() }))
+            foreach (var book in books.Select(x => new Book() { Id = x.Id, titre = x.Titre,  prix = x.Prices, auteur = x.Auteur, Genres = x.Genres.Select(x => new Genre { Type = x.Type }).ToList() }))
             {
                 Books.Add(book);
             }
