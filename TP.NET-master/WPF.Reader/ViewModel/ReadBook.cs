@@ -18,6 +18,7 @@ namespace WPF.Reader.ViewModel
         public ReadBook(Book book)
         {
             CurrentBook = book;
+            // FullBook avec contenu = getBook() 
         }
 
     }

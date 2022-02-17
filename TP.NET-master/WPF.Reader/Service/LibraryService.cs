@@ -70,6 +70,11 @@ namespace WPF.Reader.Service
             }
         }
 
+        public async void GetBook(int id)
+        {
+            var httpClient = new HttpClient() { BaseAddress = new Uri("http://localhost:44382") };
+            var book = await new ASP.Server.Client(httpClient).ApiBookGetBookAsync(id);
+        }
 
 
 
