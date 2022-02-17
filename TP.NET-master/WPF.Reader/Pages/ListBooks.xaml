@@ -19,7 +19,7 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding titre}"/>
                             <TextBlock Text="{Binding auteur}"/>
-                            <Button Command="{Binding ItemSelectedCommand}" Content="Detail"/>
+                            <Button Command="{Binding DataContext.ItemSelectedCommand}" Content="Detail"/>
                         </StackPanel>
                     </StackPanel>
 

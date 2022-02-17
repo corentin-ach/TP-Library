@@ -14,18 +14,19 @@ using System.Windows.Input;
 
 namespace WPF.Reader.Model
 {
-    // A vous de completer ce qu'est un Livre !!
-    public class Book
+    public class Genre
     {
+        
         public int Id { get; set; }
-        public String titre { get; set; }
-        public String contenu { get; set; }
-        public double prix { get; set; }
 
-        public String auteur { get; set; }
+        public string Type { get; set; }
 
-        public List<Genre> Genres { get; set; }
+        // Mettez ici les propriété de votre livre: Nom et Livres associés
 
-        /*public List<Genre> Genres { get; set; }*/
+        // N'oublier pas qu'un genre peut avoir plusieur livres
+        [JsonIgnore]
+        public List<Book> Books { get; set; }
     }
+
 }
+

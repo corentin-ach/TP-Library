@@ -7,8 +7,10 @@ namespace WPF.Reader.ViewModel
     public class DetailsBook : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public ICommand ReadCommand { get; init; } = new RelayCommand(x => { /* A vous de définir la commande */ });
-        
+        public ICommand ReadCommand { get; init; } = new RelayCommand(x => {  });
+       // public ObservableCollection<Book> Books => Ioc.Default.GetRequiredService<LibraryService>().Books;
+
+
 
         // n'oublier pas faire de faire le binding dans DetailsBook.xaml !!!!
         public Book CurrentBook { get; init; }

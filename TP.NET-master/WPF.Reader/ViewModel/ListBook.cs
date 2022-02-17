@@ -12,14 +12,18 @@ namespace WPF.Reader.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand ItemSelectedCommand { get; set; }
-
+        
         // n'oublier pas faire de faire le binding dans ListBook.xaml !!!!
         public ObservableCollection<Book> Books => Ioc.Default.GetRequiredService<LibraryService>().Books;
 
         public ListBook()
         {
-            ItemSelectedCommand = new RelayCommand(book => {  });
+            ItemSelectedCommand = new RelayCommand(book => {
+                Ioc.Default.GetRequiredService<INavigationService>().Navigate<DetailsBook>(book); });
             /*   ItemSelectedCommand = new RelayCommand(book => { /* the livre devrais etre dans la variable book }); */
+            
+        
         }
+        
     }
 }
