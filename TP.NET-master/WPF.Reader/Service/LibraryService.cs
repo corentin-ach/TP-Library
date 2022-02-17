@@ -44,7 +44,7 @@ namespace WPF.Reader.Service
         public async void UpdateBookList()
         {
 
-            var httpClient = new HttpClient() { BaseAddress = new Uri("http://localhost:44382") };
+            var httpClient = new HttpClient() { BaseAddress = new Uri("https://localhost:5001") };
 
             var books = await new ASP.Server.Client(httpClient).ApiBookGetBooksAsync( new List<int>(),0,10);
             Books.Clear();

@@ -8,7 +8,7 @@
     "ServiceName": "ASP.Server",
     "AcceptAllUntrustedCertificates": true,
     "GeneratedFileName": "JsonClient",
-    "Endpoint": "https://localhost:44382/swagger/v1/swagger.json",
+    "Endpoint": "https://localhost:5001/swagger/v1/swagger.json",
     "GeneratedFileNamePrefix": null,
     "GenerateCSharpClient": true,
     "GenerateTypeScriptClient": false,

@@ -19,7 +19,7 @@ namespace WPF.Reader.ASP.Server
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.14.8.0 (NJsonSchema v10.5.2.0 (Newtonsoft.Json v13.0.1.0))")]
     public partial class Client 
     {
-        private string _baseUrl = "https://localhost:44382";
+        private string _baseUrl = "https://localhost:5001";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
