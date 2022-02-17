@@ -18,16 +18,16 @@
         <TextBlock Text=" Detail du Livre"/>
         
         <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding CurrentBook.titre}" />
-                <TextBlock Text="{Binding CurrentBook.auteur}" />
-                <TextBlock Text="{Binding CurrentBook.prix}" />
-                <ListView ItemsSource="{Binding CurrentBook.Genres}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Type}"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+            <TextBox Text="{Binding CurrentBook.titre}" />
+            <TextBox Text="{Binding CurrentBook.auteur}" />
+            <TextBox Text="{Binding CurrentBook.prix}" />
+            <ListView ItemsSource="{Binding CurrentBook.Genres}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Type}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
             <Button Command="{Binding DataContext.ReadCommand, ElementName=Page }" CommandParameter="{Binding CurrentBook}" Content="Lire le Livre"/>
         </StackPanel>
