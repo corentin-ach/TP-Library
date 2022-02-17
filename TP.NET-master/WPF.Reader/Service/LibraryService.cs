@@ -46,12 +46,12 @@ namespace WPF.Reader.Service
         public async void UpdateBookList()
         {
 
-            var httpClient = new HttpClient() { BaseAddress = new Uri("http://localhost:44382") };
+            var httpClient = new HttpClient() { BaseAddress = new Uri("https://localhost:5001") };
 
             var books = await new ASP.Server.Client(httpClient).ApiBookGetBooksAsync( new List<int>(),0,10);
             Books.Clear();
            
-            foreach (var book in books.Select(x => new Book() { Id = x.Id, titre = x.Titre, prix = x.Prices, Genres = x.Genres.Select(x => new Genre { Type = x.Type }).ToList() }))
+            foreach (var book in books.Select(x => new Book() { Id = x.Id, titre = x.Titre,  prix = x.Prices, Genres = x.Genres.Select(x => new Genre { Type = x.Type }).ToList() }))
             {
                 Books.Add(book);
             }
@@ -60,7 +60,7 @@ namespace WPF.Reader.Service
         public async void UpdateGenreList()
         {
 
-            var httpClient = new HttpClient() { BaseAddress = new Uri("http://localhost:44382") };
+            var httpClient = new HttpClient() { BaseAddress = new Uri("https://localhost:5001") };
 
             var genres = await new ASP.Server.Client(httpClient).ApiBookGetGenreAsync();
             Genres.Clear();
