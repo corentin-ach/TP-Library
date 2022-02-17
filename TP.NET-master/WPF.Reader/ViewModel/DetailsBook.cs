@@ -9,7 +9,7 @@ namespace WPF.Reader.ViewModel
     public class DetailsBook : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public ICommand ReadCommand { get; init; } = new RelayCommand(x => { Ioc.Default.GetRequiredService<INavigationService>().Navigate<ReadBook>(x); });
+        public ICommand ReadCommand { get; init; } = new RelayCommand(book => { Ioc.Default.GetRequiredService<INavigationService>().Navigate<ReadBook>(book); });
         // public ObservableCollection<Book> Books => Ioc.Default.GetRequiredService<LibraryService>().Books;
         /* ItemSelectedCommand = new RelayCommand(book => { Ioc.Default.GetRequiredService<INavigationService>().Navigate<DetailsBook>(book); }); */
 
