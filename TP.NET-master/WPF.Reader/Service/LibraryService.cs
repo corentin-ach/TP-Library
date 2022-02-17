@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net.Http;
 using WPF.Reader.Model;
 
 namespace WPF.Reader.Service
@@ -40,11 +43,11 @@ namespace WPF.Reader.Service
         public async void UpdateBookList()
         {
 
-            var httpClient = new HttpClient() { BaseAddress = new Uri("https://127.0.0.1:5001") };
+            var httpClient = new HttpClient() { BaseAddress = new Uri("http://localhost:44382") };
 
-            var books = await new ASP.Server.Client(httpClient).ApiBookGetBooksAsync(null, null);
+            var books = await new ASP.Server.Client(httpClient).ApiBookGetBooksAsync(null,0,10);
             Books.Clear();
-            foreach (var book in books.Select(x => new Book() { Name = x.Name }))
+            foreach (var book in books.Select(x => new Book() { titre = x.Titre }))
             {
                 Books.Add(book);
             }

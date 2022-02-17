@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -27,5 +27,23 @@ namespace WPF.Reader.Model
         public List<Genre> Genres { get; set; }
 
         /*public List<Genre> Genres { get; set; }*/
+    }
+    public class BookModel
+    {
+        [JsonIgnore]
+        public Book Book { init; private get; }
+        public int Id { get { return Book.Id; } }
+        public String titre { get { return Book.titre; } }
+        public double Prices { get { return Book.prix; } }
+        public string auteur { get { return Book.auteur; } }
+        public List<Genre> Genres { get { return Book.Genres; } }
+
+        public static List<BookModel> ToBookmodel(IEnumerable<Book> bookslist)
+        {
+            var bookmodel = bookslist.Select(x => new BookModel() { Book = x }).ToList();
+            return bookmodel;
+        }
+
+
     }
 }
