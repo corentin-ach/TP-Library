@@ -34,7 +34,9 @@ namespace WPF.Reader.Service
                 new Book { titre = "xxx", contenu = "teshs", prix = 400, auteur="auteur2", Genres = new List<Genre>() { SF } },
                 new Book { titre = "www", contenu = "teshs", prix = 15, auteur="auteur3", Genres = new List<Genre>() { SF } },
             };
+
             UpdateBookList();
+            UpdateGenreList();
         }
 
         public ObservableCollection<Book> Books { get; set; }
@@ -48,12 +50,26 @@ namespace WPF.Reader.Service
 
             var books = await new ASP.Server.Client(httpClient).ApiBookGetBooksAsync( new List<int>(),0,10);
             Books.Clear();
-            foreach (var book in books.Select(x => new Book() { titre = x.Titre }))
+           
+            foreach (var book in books.Select(x => new Book() { Id = x.Id, titre = x.Titre, prix = x.Prices, Genres = x.Genres.Select(x => new Genre { Type = x.Type }).ToList() }))
             {
                 Books.Add(book);
             }
 
         }
+        public async void UpdateGenreList()
+        {
+
+            var httpClient = new HttpClient() { BaseAddress = new Uri("http://localhost:44382") };
+
+            var genres = await new ASP.Server.Client(httpClient).ApiBookGetGenreAsync();
+            Genres.Clear();
+            foreach (var genre in genres.Select(x => new Genre { Type = x.Type }))
+            {
+                Genres.Add(genre);
+            }
+        }
+
 
 
 
