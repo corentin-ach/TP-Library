@@ -34,6 +34,7 @@ namespace WPF.Reader.Service
                 new Book{ titre = "xxx", contenu = "teshs", prix = 400, Genres = new List<Genre>() { SF } },
                 new Book { titre = "www", contenu = "teshs", prix = 15, Genres = new List<Genre>() { SF } },
             };
+
             UpdateBookList();
         }
 
@@ -54,6 +55,7 @@ namespace WPF.Reader.Service
             }
 
         }
+
 
 
 
