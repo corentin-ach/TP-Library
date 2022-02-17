@@ -8,14 +8,24 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       d:DataContext="{d:DesignInstance Type=vm:InDesignDetailsBook, d:IsDesignTimeCreatable=True}"
-      Title="DetailsBook">
+      Title="DetailsBook" Name="Page">
 
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Text=" Liste des Livres"/>
+        <TextBlock Text=" Detail du Livre"/>
+        <ListBox ItemsSource="{Binding CurrentBook}">
+        <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding CurrentBook.titre}" />
+                <TextBlock Text="{Binding CurrentBook.auteur}" />
+                <TextBlock Text="{Binding CurrentBook.prix}" />
+                
+
+                <Button Command="{Binding DataContext.ReadCommand, ElementName=Page }" CommandParameter="{Binding .}" Content="Lire le Livre"/>
+        </StackPanel>
+        </ListBox>
         <!-- il faut afficher les information du livre: Nom, Auteur, Prix, Genres-->
         <!-- Mais pas le contenu ! -->
         <!-- N'oublier pas le bouton pour aller lire le livre. La commande ReadCommand est faite pour ca ! -->
