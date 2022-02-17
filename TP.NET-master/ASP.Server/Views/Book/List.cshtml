@@ -10,36 +10,28 @@
     @Html.ActionLink("Create New","Create")
 </p>
 
-@foreach (var book in Model)
-{
-    <div>@book.titre</div>
-    foreach (var genre in book.Genres)
-    {
-        <span>@genre.Type</span>
-    } 
-}
 
 
 <table class="listeBooks">
     <tr>
         <th>
-                @Html.DisplayNameFor(model => model.Id)
+                Id
         </th>
         <th>
-                @Html.DisplayNameFor(model => model.titre)
+                Titre
         </th>
         <th>
-                @Html.DisplayNameFor(model => model.auteur)
+                Auteur
         </th>
         <th>
-                @Html.DisplayNameFor(model => model.contenu)
+                Contenu
         </th>
         <th>
-                @Html.DisplayNameFor(model => model.prix)
+                Prix
         </th>
         <th>
             
-                @Html.DisplayNameFor(model => model.Genres)
+                Genres
         </th>
         <th>
             
@@ -54,22 +46,25 @@
 
         <tr>
             <td>
-                @Html.DisplayFor(modelBook => book.Id)
+                @book.Id
             </td>
             <td>
-                @Html.DisplayFor(modelBook => book.titre)
+                @book.titre
             </td>
             <td>
-                @Html.DisplayFor(modelBook => book.auteur)
+                @book.auteur
             </td>    
             <td>
-                @Html.DisplayFor(modelBook => book.contenu)
+                @book.contenu
             </td> 
             <td>
-                @Html.DisplayFor(modelBook => book.prix)
+                @book.prix
             </td> 
             <td>
-                @Html.DisplayFor(modelBook => book.Genres)
+                @foreach (var genre in book.Genres)
+               {
+                   @genre.Type
+               }
             </td>
             <td>
                  <input type="submit" value="Supp" style="width: 100%; margin-top: 50px" />
