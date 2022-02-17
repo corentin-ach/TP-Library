@@ -34,6 +34,7 @@ namespace WPF.Reader.Service
                 new Book{ titre = "xxx", contenu = "teshs", prix = 400, Genres = new List<Genre>() { SF } },
                 new Book { titre = "www", contenu = "teshs", prix = 15, Genres = new List<Genre>() { SF } },
             };
+            UpdateBookList();
         }
 
         public ObservableCollection<Book> Books { get; set; }
@@ -45,7 +46,7 @@ namespace WPF.Reader.Service
 
             var httpClient = new HttpClient() { BaseAddress = new Uri("http://localhost:44382") };
 
-            var books = await new ASP.Server.Client(httpClient).ApiBookGetBooksAsync(null,0,10);
+            var books = await new ASP.Server.Client(httpClient).ApiBookGetBooksAsync( new List<int>(),0,10);
             Books.Clear();
             foreach (var book in books.Select(x => new Book() { titre = x.Titre }))
             {
@@ -53,6 +54,8 @@ namespace WPF.Reader.Service
             }
 
         }
+
+
 
         // C'est aussi ici que vous ajouterez les requète réseau pour récupérer les livres depuis le web service que vous avez fait
         // Vous pourrez alors ajouter les livres obtenu a la variable Books !

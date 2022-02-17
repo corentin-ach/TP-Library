@@ -16,22 +16,20 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBlock Text=" Detail du Livre"/>
-        <ListBox ItemsSource="{Binding CurrentBook}">
         <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding CurrentBook.titre}" />
-                <TextBlock Text="{Binding CurrentBook.auteur}" />
-                <TextBlock Text="{Binding CurrentBook.prix}" />
-                <ListView ItemsSource="{Binding CurrentBook.Genres}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Type}"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+            <TextBox Text="{Binding CurrentBook.titre}" />
+            <TextBox Text="{Binding CurrentBook.auteur}" />
+            <TextBox Text="{Binding CurrentBook.prix}" />
+            <ListView ItemsSource="{Binding CurrentBook.Genres}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Type}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-                <Button Command="{Binding DataContext.ReadCommand, ElementName=Page }" CommandParameter="{Binding .}" Content="Lire le Livre"/>
+            <Button Command="{Binding DataContext.ReadCommand, ElementName=Page }" CommandParameter="{Binding .}" Content="Lire le Livre"/>
         </StackPanel>
-        </ListBox>
         <!-- il faut afficher les information du livre: Nom, Auteur, Prix, Genres-->
         <!-- Mais pas le contenu ! -->
         <!-- N'oublier pas le bouton pour aller lire le livre. La commande ReadCommand est faite pour ca ! -->
