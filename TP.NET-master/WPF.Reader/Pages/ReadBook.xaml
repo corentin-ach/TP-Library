@@ -19,10 +19,12 @@
             <RowDefinition Height="80" />
         </Grid.RowDefinitions>
         <TextBlock Text=" lire le Livre"/>
+        <TextBlock Text="{Binding CurrentBook.titre}" />
+        <TextBlock Text="{Binding CurrentBook.contenu}" />
         <!-- On aimerais bien avoir le tire du livre en entête -->
 
         <!-- Ainsi que le contenu du livre ! -->
-        
+         
         <Button Grid.Row="2" Command="{Binding Path=GoBack, Source={StaticResource ResourceKey=navigator}}" CommandParameter="LIST" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="200" Content="Retourner au details" Margin="0,0,0,27"/>
     </Grid>
 </Page>

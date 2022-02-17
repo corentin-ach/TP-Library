@@ -30,10 +30,11 @@ namespace WPF.Reader.Service
             };
 
             Books = new ObservableCollection<Book>() {
-                new Book { titre = "yyy", contenu = "teshs", prix = 200, Genres = new List<Genre>() { SF } },
-                new Book{ titre = "xxx", contenu = "teshs", prix = 400, Genres = new List<Genre>() { SF } },
-                new Book { titre = "www", contenu = "teshs", prix = 15, Genres = new List<Genre>() { SF } },
+                new Book { titre = "yyy", contenu = "teshs", prix = 200, auteur="auteur1", Genres = new List<Genre>() { SF } },
+                new Book { titre = "xxx", contenu = "teshs", prix = 400, auteur="auteur2", Genres = new List<Genre>() { SF } },
+                new Book { titre = "www", contenu = "teshs", prix = 15, auteur="auteur3", Genres = new List<Genre>() { SF } },
             };
+
             UpdateBookList();
             UpdateGenreList();
         }
@@ -68,6 +69,7 @@ namespace WPF.Reader.Service
                 Genres.Add(genre);
             }
         }
+
 
 
 
