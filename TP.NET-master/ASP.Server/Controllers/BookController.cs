@@ -36,14 +36,27 @@ namespace ASP.Server.Controllers
 
     public class DeleteBookModel
     {
-        [Required]
+       [Required]
         [Display(Name = "Nom")]
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public float Price { get; set; }
-        public string Contenu { get; set; }
+        public String Name { get; set; }
+
+        // Ajouter ici tous les champ que l'utilisateur devra remplir pour ajouter un livre
+        [Required]
+        [Display(Name = "Contenu")]
+        public String Contenu { get; set; }
+        [Required]
+        [Display(Name = "Prix")]
+        public double Prix { get; set; }
+        [Required]
+        [Display(Name = "Auteur")]
+        public String Auteur { get; set; }
+        [Required]
+        [Display(Name = "Genres")]
+        // Liste des genres séléctionné par l'utilisateur
         public List<int> Genres { get; set; }
-        public IEnumerable<Genre> AllGenres { get; init; }
+        
+        // Liste des genres a afficher à l'utilisateur
+        public IEnumerable<Genre> AllGenres { get; init;  }
     }
 
     public class BookController : Controller
@@ -82,8 +95,8 @@ namespace ASP.Server.Controllers
 
         public ActionResult<DeleteBookModel> Delete(int id)
         {
-            var book = libraryDbContext.Books.Find(id);
-            libraryDbContext.Books.Remove(book);
+            var books = libraryDbContext.Books.Single(element => element.Id == id);
+            libraryDbContext.Remove(books);
             libraryDbContext.SaveChanges();
             List<Book> ListBooks = libraryDbContext.Books.ToList();
             return View(new DeleteBookModel() { });
