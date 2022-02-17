@@ -36,13 +36,16 @@ namespace ASP.Server.Api
 
         public ActionResult<List<BookModel>> GetBooks(List<int> genreid, int offset = 0, int limit = 10)
         {
-           
-            var bookslist = libraryDbContext.Books
+            IEnumerable<Book> bookslist = libraryDbContext.Books
              .Include(BookModel => BookModel.Genres)
              .Skip(offset)
              .Take(limit)
-             .Where(b => b.Genres.Any(a => genreid.Contains(a.Id)))
              .ToList();
+            if (genreid.Count > 0)
+            {
+                bookslist = bookslist.Where(b => b.Genres.Any(a => genreid.Contains(a.Id)));
+            }
+            
             return BookModel.ToBookmodel(bookslist);
 
         }

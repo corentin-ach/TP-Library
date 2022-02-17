@@ -36,7 +36,7 @@ namespace ASP.Server.Model
         public string auteur { get { return Book.auteur; } }
         public List<Genre> Genres { get { return Book.Genres; } }
 
-        public static List<BookModel> ToBookmodel(List<Book> bookslist)
+        public static List<BookModel> ToBookmodel(IEnumerable<Book> bookslist)
         {
             var bookmodel = bookslist.Select(x => new BookModel() { Book = x }).ToList();
             return bookmodel;
