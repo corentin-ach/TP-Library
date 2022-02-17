@@ -21,7 +21,13 @@
                 <TextBlock Text="{Binding CurrentBook.titre}" />
                 <TextBlock Text="{Binding CurrentBook.auteur}" />
                 <TextBlock Text="{Binding CurrentBook.prix}" />
-                
+                <ListView ItemsSource="{Binding CurrentBook.Genres}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Type}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
                 <Button Command="{Binding DataContext.ReadCommand, ElementName=Page }" CommandParameter="{Binding .}" Content="Lire le Livre"/>
         </StackPanel>
