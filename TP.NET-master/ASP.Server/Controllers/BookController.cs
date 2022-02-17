@@ -34,6 +34,18 @@ namespace ASP.Server.Controllers
         public IEnumerable<Genre> AllGenres { get; init;  }
     }
 
+    public class DeleteBookModel
+    {
+        [Required]
+        [Display(Name = "Nom")]
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public float Price { get; set; }
+        public string Contenu { get; set; }
+        public List<int> Genres { get; set; }
+        public IEnumerable<Genre> AllGenres { get; init; }
+    }
+
     public class BookController : Controller
     {
         private readonly LibraryDbContext libraryDbContext;
@@ -68,13 +80,13 @@ namespace ASP.Server.Controllers
             return View(new CreateBookModel() { AllGenres = libraryDbContext.Genre.ToList() } );
         }
 
-        public ActionResult<Book> Delete(int id)
+        public ActionResult<DeleteBookModel> Delete(int id)
         {
             var book = libraryDbContext.Books.Find(id);
-            var newList = libraryDbContext.Books.Remove(book);
+            libraryDbContext.Books.Remove(book);
             libraryDbContext.SaveChanges();
-            // List<Book> ListBooks = libraryDbContext.Books.ToList();
-            return View(newList);
+            List<Book> ListBooks = libraryDbContext.Books.ToList();
+            return View(new DeleteBookModel() { });
         }
     }
 }

@@ -50,6 +50,8 @@
     <!-- la liste des genres est dans la variable Model qui est typé en ligne 3, elle correspond à la variable xxx dans View(xxx) du controller -->
     @foreach (var book in Model)
     {
+       <form asp-controller="Book" asp-action="Delete">
+
         <tr>
             <td>
                 @Html.DisplayFor(modelBook => book.Id)
@@ -70,11 +72,11 @@
                 @Html.DisplayFor(modelBook => book.Genres)
             </td>
             <td>
-                <form asp-controller="Book">
-                      <input type="submit" value="Supp" style="width: 100%; margin-top: 50px" />
-                </form>
+                 <input type="submit" value="Supp" style="width: 100%; margin-top: 50px" />
             </td>
         </tr>
+     </form>
+
     }
 </table>
 
