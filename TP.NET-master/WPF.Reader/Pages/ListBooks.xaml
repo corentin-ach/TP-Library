@@ -14,9 +14,9 @@
       >
     
     <StackPanel>
-        <TextBlock Text=" Liste des Livres"/>
-        <StackPanel Orientation="Horizontal" >
-            <TextBlock Text="Titre" FontSize="30" Foreground="Blue" Margin="5,0,0,0"  />
+        <TextBlock Text=" Liste des Livres" FontSize="35"/>
+        <StackPanel Orientation="Horizontal"  >
+            <TextBlock Text="Titre" FontSize="30" Width="Auto" Foreground="Blue" Margin="10,0,0,0"  TextAlignment="Center" />
             <TextBlock Text="Auteur" FontSize="30" Foreground="Blue" Margin="75,0,0,0"  />
             <TextBlock Text="Detail" FontSize="30" Foreground="Blue" Margin="80,0,0,0"  />
         </StackPanel>
@@ -27,9 +27,9 @@
                 <DataTemplate>
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" >
-                            <TextBlock Text="{Binding titre}" Margin="5,0,0,0" />
-                            <TextBlock Text="{Binding auteur}" Margin="75,0,0,0" />
-                            <Button Command="{Binding DataContext.ItemSelectedCommand, ElementName=Page }" CommandParameter="{Binding .}" Content="Detail" Margin="170,0,0,0" Width="102" Height="34" Background="DarkBlue" Foreground="White" />
+                            <TextBox Text="{Binding titre}" Margin="5,6,10,0" />
+                            <TextBlock Text="{Binding auteur}" Margin="110,6,0,0" />
+                            <Button Command="{Binding DataContext.ItemSelectedCommand, ElementName=Page }" CommandParameter="{Binding .}" Content="Detail" Margin="110,2,0,0" Width="102" Height="34" Background="DarkBlue" Foreground="White" />
                         </StackPanel>
                     </StackPanel>
 

@@ -15,19 +15,15 @@
             <RowDefinition Height="100" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock TextDecorations="Underline" Margin="10,0,0,0"><Run Language="fr-fr" Text="D"/><Run Text="etail du Livre"/></TextBlock>
-        <TextBox Text="Titre" Width="Auto" Margin="30,26,617,57" Background="#FFC0D8FD" TextAlignment="Center" />
-        <TextBox Text="Prix" Margin="265,26,454,57" Background="#FFC0D8FD" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" >
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.194"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
-        <TextBox Text="Auteur" Margin="160,26,522,57" Background="#FFC0D8FD" TextAlignment="Center" />
+        
+        <StackPanel Orientation="Horizontal" >
+            <TextBox Text="Titre"  Width="130" Margin="30,20,0,57" Background="#FFC0D8FD" TextAlignment="Center" />
+            <TextBox Text="Auteur" Width="104" Margin="0,20,0,57" Background="#FFC0D8FD" TextAlignment="Center" />
+            <TextBox Text="prix" Width="62" Margin="0,20,0,57" Background="#FFC0D8FD" TextAlignment="Center" />
+            <TextBox Text="Genre" Width="101" Margin="0,20,0,57" Background="#FFC0D8FD" TextAlignment="Center" />
+        </StackPanel>
+
+        <TextBlock TextDecorations="Underline" Margin="10,0,0,0"><Run Language="fr-fr" Text="D"/><Run Text="Detail du Livre"/></TextBlock>
 
 
         <StackPanel Orientation="Horizontal" Margin="30,40,0,0">
@@ -43,7 +39,7 @@
             </ListView>
             <Button Command="{Binding DataContext.ReadCommand, ElementName=Page}" CommandParameter="{Binding CurrentBook}" Content="Lire le Livre" Width="102" Height="34" Margin="30,0,0,0" Background="DarkBlue" Foreground="White"/>
         </StackPanel>
-        <TextBox Text="Genre" Margin="328,26,358,57" Background="#FFC0D8FD" TextAlignment="Center" TextChanged="TextBox_TextChanged" />
+        
 
         <!-- il faut afficher les information du livre: Nom, Auteur, Prix, Genres-->
         <!-- Mais pas le contenu ! -->
