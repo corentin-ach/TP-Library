@@ -12,20 +12,39 @@
     <Page.Resources>
         <vm:Navigator x:Key="navigator" />
     </Page.Resources>
-    <Grid>
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="80" />
+            <RowDefinition Height="48.267" />
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="16"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text=" lire le Livre"/>
-        <TextBlock Text="{Binding CurrentBook.titre}" />
-        <TextBlock Text="{Binding CurrentBook.contenu}" />
+        <TextBlock TextDecorations="Underline" Margin="10,0,0,0"><Run Language="fr-fr"/><Run Text="Detail du Livre"/></TextBlock>
+        <TextBox Text="Titre" Width="Auto" Margin="30,26,617,5" Background="#FFC0D8FD" TextAlignment="Center" />
+        <TextBox Text="Contenu" Margin="160,26,410,5" Background="#FFC0D8FD" TextAlignment="Center" >
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.194"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <StackPanel Orientation="Horizontal" Margin="30,10,0,0"/>
         <!-- On aimerais bien avoir le tire du livre en entête -->
 
         <!-- Ainsi que le contenu du livre ! -->
-         
-        <Button Grid.Row="2" Command="{Binding Path=GoBack, Source={StaticResource ResourceKey=navigator}}" CommandParameter="LIST" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="200" Content="Retourner au details" Margin="0,0,0,27"/>
+
+        <Button Grid.Row="4" Command="{Binding Path=GoBack, Source={StaticResource ResourceKey=navigator}}" CommandParameter="LIST" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Content="Retourner au details" Margin="0,270,0,0" Background="DarkBlue" Foreground="White"/>
+        <TextBox Text="{Binding CurrentBook.titre}" TextAlignment="Center" Margin="30,43,628,294" Grid.RowSpan="5" />
+        <TextBox Text="{Binding CurrentBook.contenu}" TextAlignment="Center" TextChanged="TextBox_TextChanged" Margin="158,43,411,294" Grid.RowSpan="5" />
     </Grid>
 </Page>
 
+
+
+<!-- il faut afficher les information du livre: Nom, Auteur, Prix, Genres-->
+<!-- Mais pas le contenu ! -->
+<!-- N'oublier pas le bouton pour aller lire le livre. La commande ReadCommand est faite pour ca ! -->

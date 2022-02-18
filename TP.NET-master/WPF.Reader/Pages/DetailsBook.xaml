@@ -15,7 +15,7 @@
             <RowDefinition Height="100" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock TextDecorations="Underline" Margin="10,0,0,0"><Run Language="fr-fr" Text="D"/><Run Text="etail du Livre"/></TextBlock>
+        <TextBlock TextDecorations="Underline" Margin="10,0,0,0"><Run Language="fr-fr"/><Run Text="Detail du Livre"/></TextBlock>
         <TextBox Text="Titre" Width="Auto" Margin="30,26,617,57" Background="#FFC0D8FD" TextAlignment="Center" />
         <TextBox Text="Prix" Margin="265,26,454,57" Background="#FFC0D8FD" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" >
             <TextBox.RenderTransform>
@@ -31,9 +31,9 @@
 
 
         <StackPanel Orientation="Horizontal" Margin="30,40,0,0">
-            <TextBox Text="{Binding CurrentBook.titre}" Width="130" Height="52" />
-            <TextBox Text="{Binding CurrentBook.auteur}" Width="105" Height="52" />
-            <TextBox Text="{Binding CurrentBook.prix}" Width="62" Height="52" />
+            <TextBox Text="{Binding CurrentBook.titre}" Width="130" Height="52" TextAlignment="Center" />
+            <TextBox Text="{Binding CurrentBook.auteur}" Width="105" Height="52" TextAlignment="Center" />
+            <TextBox Text="{Binding CurrentBook.prix}" Width="62" Height="52" TextAlignment="Center" />
             <ListView ItemsSource="{Binding CurrentBook.Genres}" Height="52" Width="100">
                 <ListView.ItemTemplate>
                     <DataTemplate>
