@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -70,10 +71,14 @@ namespace WPF.Reader.Service
             }
         }
 
-        public async void GetBook(int id)
+        public Book GetBook(int id)
         {
-            var httpClient = new HttpClient() { BaseAddress = new Uri("http://localhost:44382") };
-            var book = await new ASP.Server.Client(httpClient).ApiBookGetBookAsync(id);
+            var httpClient = new HttpClient() { BaseAddress = new Uri("https://localhost:5001") };
+            var book = new ASP.Server.Client(httpClient).ApiBookGetBookAsync(id).Result;
+
+            Book fullbook = new Book() { titre = book.Titre, contenu = book.Contenu, prix = book.Prix, auteur = book.Auteur  };
+
+            return fullbook;
         }
 
 

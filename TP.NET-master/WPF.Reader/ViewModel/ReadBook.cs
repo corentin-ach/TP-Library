@@ -17,8 +17,8 @@ namespace WPF.Reader.ViewModel
 
         public ReadBook(Book book)
         {
-            CurrentBook = book;
-            // FullBook avec contenu = getBook() 
+            CurrentBook = Ioc.Default.GetRequiredService<LibraryService>().GetBook(book.Id);
+
         }
 
     }
