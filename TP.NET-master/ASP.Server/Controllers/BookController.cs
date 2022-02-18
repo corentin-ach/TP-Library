@@ -141,6 +141,25 @@ namespace ASP.Server.Controllers
             return View(modif);
         }
 
+        public ActionResult<ModifyBookModel> Edit(int id, ModifyBookModel book)
+        {
+
+            //requete recup list genre et obetenir le bon genre
+
+            var books = libraryDbContext.Books.Single(element => element.Id == id);
+            books.titre = book.Name;
+            books.contenu = book.Contenu;
+            books.prix = book.Prix;
+            books.auteur = book.Auteur;
+            
+
+            libraryDbContext.Update(books);
+            libraryDbContext.SaveChanges();
+
+            // Il faut interoger la base pour récupérer tous les genres, pour que l'utilisateur puisse les slécétionné
+            return View(new ModifyBookModel() { });
+        }
+
 
 
     }

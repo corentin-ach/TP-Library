@@ -19,9 +19,9 @@ label {
 </style>
 
 <!-- Voici une facon de faire, mais ce n'est pas la seul, a vous de jouer ! -->
-<form asp-controller="Book" asp-action="Modify">
+<form asp-controller="Book" asp-action="Edit">
     <div class="input-group">
-        <input asp-for="Id" value="@Model.Name" type="hidden"/>
+        <input asp-for="Id" value="@Model.Id" type="hidden"/>
     </div>
     <div class="input-group">
         <label asp-for="Name"></label>
@@ -42,7 +42,7 @@ label {
 
     <div class="input-group">
         <label asp-for="Genres"></label>
-        <input asp-for="Genres" value="@Model.Genres"/>
+        <input asp-for="Genres"/>
     </div>
     
     
