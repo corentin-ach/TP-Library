@@ -30,9 +30,9 @@ namespace ASP.Server.Database
             // new Book() { Author = "xxx", Name = "yyy", Price = n.nnf, Content = "ccc", Genres = new() { Romance, Thriller } }
             bookDbContext.Books.AddRange(
                 new Book(){ titre = "Book 1", contenu = "teshs", prix = 200, auteur = "Tessir" , Genres = new List<Genre>() { SF, Romance} }, 
-                new Book(){ titre = " Book 2", contenu = "teshs", prix = 400, auteur =  "Corentin" , Genres = new List<Genre>() { SF, Thriller } },
+                new Book(){ titre = "Book 2", contenu = "teshs", prix = 400, auteur =  "Corentin" , Genres = new List<Genre>() { SF, Thriller } },
                 new Book(){ titre = "Book 3", contenu = "teshs", prix = 15, auteur = "Nisserine", Genres = new List<Genre>() { Romance } },
-                new Book(){ titre = " Book 4", contenu = "teshs", prix = 15, auteur = "Florent", Genres = new List<Genre>() { SF, Thriller } }
+                new Book(){ titre = "Book 4", contenu = "teshs", prix = 15, auteur = "Florent", Genres = new List<Genre>() { SF, Thriller } }
             );
             // Vous pouvez initialiser la BDD ici
 
