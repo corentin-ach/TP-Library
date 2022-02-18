@@ -14,22 +14,26 @@
       >
     
     <StackPanel>
+        
         <TextBlock Text=" Liste des Livres" FontSize="35"/>
         <StackPanel Orientation="Horizontal"  >
-            <TextBlock Text="Titre" FontSize="30" Width="Auto" Foreground="Blue" Margin="10,0,0,0"  TextAlignment="Center" />
-            <TextBlock Text="Auteur" FontSize="30" Foreground="Blue" Margin="75,0,0,0"  />
-            <TextBlock Text="Detail" FontSize="30" Foreground="Blue" Margin="80,0,0,0"  />
+            <TextBox Text="Titre" FontSize="15" Width="130" Height="30" Background="#FFC0D8FD" Margin="7,0,0,0"  TextAlignment="Center" />
+            <TextBox Text="Auteur" FontSize="15"  Width="130" Height="30" Background="#FFC0D8FD"   TextAlignment="Center"  />
+            <TextBox Text="Detail" FontSize="15" Width="130" Height="30" Background="#FFC0D8FD"   TextAlignment="Center"  />
         </StackPanel>
+
+        
 
 
         <ListBox ItemsSource="{Binding Books}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
+                        
                         <StackPanel Orientation="Horizontal" >
-                            <TextBox Text="{Binding titre}" Margin="5,6,10,0" />
-                            <TextBlock Text="{Binding auteur}" Margin="110,6,0,0" />
-                            <Button Command="{Binding DataContext.ItemSelectedCommand, ElementName=Page }" CommandParameter="{Binding .}" Content="Detail" Margin="110,2,0,0" Width="102" Height="34" Background="DarkBlue" Foreground="White" />
+                            <TextBox Text="{Binding titre}" Width="130" Height="52" />
+                            <TextBox Text="{Binding auteur}" Width="130" Height="52" />
+                            <Button Command="{Binding DataContext.ItemSelectedCommand, ElementName=Page }" CommandParameter="{Binding .}" Content="Detail"  Width="130" Height="52" Background="DarkBlue" Foreground="White" />
                         </StackPanel>
                     </StackPanel>
 
