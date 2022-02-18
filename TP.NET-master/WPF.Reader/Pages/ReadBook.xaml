@@ -12,34 +12,24 @@
     <Page.Resources>
         <vm:Navigator x:Key="navigator" />
     </Page.Resources>
-    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="48.267" />
-            <RowDefinition Height="0"/>
-            <RowDefinition Height="0"/>
-            <RowDefinition Height="16"/>
-            <RowDefinition />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="80" />
         </Grid.RowDefinitions>
-        <TextBlock TextDecorations="Underline" Margin="10,0,0,0"><Run Language="fr-fr"/><Run Text="Detail du Livre"/></TextBlock>
-        <TextBox Text="Titre" Width="Auto" Margin="30,26,617,5" Background="#FFC0D8FD" TextAlignment="Center" />
-        <TextBox Text="Contenu" Margin="160,26,410,5" Background="#FFC0D8FD" TextAlignment="Center" >
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.194"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
-        <StackPanel Orientation="Horizontal" Margin="30,10,0,0"/>
-        <!-- On aimerais bien avoir le tire du livre en entête -->
+        <StackPanel>
 
-        <!-- Ainsi que le contenu du livre ! -->
+            <TextBox Text="{Binding CurrentBook.titre}" FontSize="20" Width="180" Height="30" Background="#FFC0D8FD" Margin="7,0,0,0" TextAlignment="Center"  />
+                <TextBox Text="Contenu" FontSize="15"  Width="600" Height="30" Background="#FFC0D8FD" TextAlignment="Center"  />
+            <TextBox Text="{Binding CurrentBook.contenu}"  Width="600" Height="200"  />
+            
+            <!-- On aimerais bien avoir le tire du livre en entête -->
 
-        <Button Grid.Row="4" Command="{Binding Path=GoBack, Source={StaticResource ResourceKey=navigator}}" CommandParameter="LIST" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Content="Retourner au details" Margin="0,270,0,0" Background="DarkBlue" Foreground="White"/>
-        <TextBox Text="{Binding CurrentBook.titre}" TextAlignment="Center" Margin="30,43,628,294" Grid.RowSpan="5" />
-        <TextBox Text="{Binding CurrentBook.contenu}" TextAlignment="Center" TextChanged="TextBox_TextChanged" Margin="158,43,411,294" Grid.RowSpan="5" />
+            <!-- Ainsi que le contenu du livre ! -->
+            
+        </StackPanel>
+        <Button Grid.Row="2" Command="{Binding Path=GoBack, Source={StaticResource ResourceKey=navigator}}" CommandParameter="LIST" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="200" Content="Retourner au details" Margin="0,0,0,27" Background="DarkBlue" Foreground="White"/>
     </Grid>
 </Page>
 
