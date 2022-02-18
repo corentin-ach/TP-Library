@@ -38,11 +38,16 @@
                Suppression
             
         </th>
+        <th>
+            
+               Modification
+            
+        </th>
     </tr>
     <!-- la liste des genres est dans la variable Model qui est typé en ligne 3, elle correspond à la variable xxx dans View(xxx) du controller -->
     @foreach (var book in Model)
     {
-       <form asp-controller="Book" asp-action="Delete">
+       
 
         <tr>
             <td>
@@ -67,11 +72,19 @@
                }
             </td>
             <td>
+                 <form asp-controller="Book" asp-action="Delete">
                  <input type="submit" value="Supp" style="width: 100%; margin-top: 50px" />
                  <input type="hidden" value="@book.Id" name="id"/>
+                 </form>
+            </td>
+            <td>
+               <form asp-controller="Book" asp-action="Modify">
+                 <input type="submit" value="Modif" style="width: 100%; margin-top: 50px" />
+                 <input type="hidden" value="@book.Id" name="id"/>
+                 </form>
             </td>
         </tr>
-     </form>
+     
 
     }
 </table>

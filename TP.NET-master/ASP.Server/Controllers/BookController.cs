@@ -34,6 +34,35 @@ namespace ASP.Server.Controllers
         public IEnumerable<Genre> AllGenres { get; init;  }
     }
 
+    public class ModifyBookModel
+    {
+        [Required]
+        [Display(Name = "Id")]
+        public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "Nom")]
+        public String Name { get; set; }
+
+        // Ajouter ici tous les champ que l'utilisateur devra remplir pour ajouter un livre
+        [Required]
+        [Display(Name = "Contenu")]
+        public String Contenu { get; set; }
+        [Required]
+        [Display(Name = "Prix")]
+        public double Prix { get; set; }
+        [Required]
+        [Display(Name = "Auteur")]
+        public String Auteur { get; set; }
+        [Required]
+        [Display(Name = "Genres")]
+        // Liste des genres séléctionné par l'utilisateur
+        public List<int> Genres { get; set; }
+
+        // Liste des genres a afficher à l'utilisateur
+        public IEnumerable<Genre> AllGenres { get; init; }
+    }
+
     public class DeleteBookModel
     {
        [Required]
@@ -101,5 +130,18 @@ namespace ASP.Server.Controllers
             List<Book> ListBooks = libraryDbContext.Books.ToList();
             return View(new DeleteBookModel() { });
         }
+
+        public ActionResult<ModifyBookModel> Modify(int id)
+        {
+            
+            var books = libraryDbContext.Books.Single(element => element.Id == id);
+            //var genre = libraryDbContext.Genre.Find(x=>books)
+            //var genres = libraryDbContext.Genre.Where(genres => books.Genres.Contains(genres.Id)).ToList();
+            var modif = new ModifyBookModel() { Id = books.Id,  Name=books.titre, Contenu=books.contenu, Prix=books.prix, Auteur=books.auteur};
+            return View(modif);
+        }
+
+
+
     }
 }
