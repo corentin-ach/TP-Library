@@ -42,5 +42,6 @@ label {
         <select asp-for="Genres" asp-items="@(new SelectList(Model.AllGenres,"Id","Type"))">
         </select>
     </div>
-    <input type="submit" value="Add" style="width: 100%; margin-top: 50px" />
+     <input type="submit" value="Add" style="width: 100%; margin-top: 50px"  />
 </form>
+<a asp-action="List">Back to List</a>
